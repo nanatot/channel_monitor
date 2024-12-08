@@ -67,7 +67,7 @@ function channel_monitor:find_keyword(message, keyword)
 	end
 end
 
-function channel_monitor:CHAT_MSG_CHANNEL()
+function channel_monitor:CHAT_MSG_HARDCORE()
 	if channel_monitor_on and self:match(arg1) and arg2 ~= UnitName('player') then
 		arg1 = gsub(arg1, "%%", "%%%%")
 
@@ -124,7 +124,7 @@ function channel_monitor:ADDON_LOADED()
 		end
 	end
 
-	self:RegisterEvent('CHAT_MSG_CHANNEL')
+	self:RegisterEvent('CHAT_MSG_HARDCORE')
 
 	local main_frame = CreateFrame('Frame', nil, UIParent)
 	self.main_frame = main_frame
